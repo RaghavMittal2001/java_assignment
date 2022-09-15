@@ -1,0 +1,45 @@
+public class demo{
+
+
+    public static void main(String args[])
+    {
+        //Problem 1
+        int a=20;
+        int b=40;
+        int c=a+b;
+        int d=b-a;
+        System.out.println(c+ " "+ d);
+
+        // Problem 2
+        float f=1.2f;
+        float g=3.6f;
+        float h=f*g;
+        System.out.println(h);
+
+        //Problem 3
+        int i=10;
+        int j=3;
+        int q=i/j;
+        int r=i%j;
+        System.out.println(q+ " "+ r);
+        
+        //Problem 4(a)
+        int n=40;
+        int m=1;
+        int temp;
+        temp=n;
+        n=m;
+        m=temp;
+
+        //Problem 4(b)
+        int x=10;
+        int y=20;
+        x=x+y;
+        y=x-y;
+        x=x-y;
+        System.out.println(x+ " "+ y);
+
+
+
+}
+}
