@@ -1,0 +1,83 @@
+import java.util.Arrays;
+import java.util.*;
+public class demo {
+  public static void main(String[] args) {
+    //problem 1
+     String str1 = "Raghav", str2 = "Mittal";
+     str1=str1.toLowerCase();
+     str2=str2.toLowerCase();
+     System.out.println(str1+" "+str2);
+     int d = str1.compareTo(str2);
+     
+     if (d > 0) {
+        System.out.println("str1 is greater than str2");
+     } else if (d == 0) {
+        System.out.println("str1 is equal to str2");
+     } else {
+        System.out.println("str1 is less than str2");
+     }
+
+
+     //problem 2
+
+     int[] array = { 4, 2, 2, 8, 3, 3, 1 };
+     int size = array.length;
+     int[] output = new int[size + 1];
+     int max = array[0];
+     for (int i = 1; i < size; i++) {
+       if (array[i] > max)
+         max = array[i];
+     }
+     int[] count = new int[max + 1];
+     for (int i = 0; i < max; ++i) {
+      count[i] = 0;
+    }
+    for (int i = 0; i < size; i++) {
+      count[array[i]]++;
+    }
+    for (int i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+    }
+    for (int i = size - 1; i >= 0; i--) {
+      output[count[array[i]] - 1] = array[i];
+      count[array[i]]--;
+    }
+    for (int i = 0;i<size ; i++) {
+     System.out.print(output[i]+" ");
+    }
+    System.out.println();
+
+
+
+    //problem 3
+    String str ="Java";
+    str=str.toLowerCase();
+      char[] arr = str.toCharArray();
+      Arrays.sort(arr);
+      String s = new String(arr);
+      System.out.println(s);
+  
+
+
+
+      //problem 4
+
+      Scanner sc= new Scanner(System.in); 
+      System.out.print("Enter first number:  ");  
+      int a= sc.nextInt(); 
+      System.out.print(a+" ");
+      while(a!=1){
+        if(a%2==0)
+        a/=2;
+        else
+        a=3*a+1;
+        System.out.print(a+ " ");
+      }
+      System.out.println();
+     
+
+      //problem 5
+      
+
+  }
+}
