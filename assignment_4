@@ -1,0 +1,171 @@
+import java.util.*;
+import java.lang.Math;
+
+class Employee {
+    String Name;
+    int Yoj;
+    int Salary;
+    String Address;
+
+    Employee(String a, int b, int c, String d) {
+        Name = a;
+        Yoj = b;
+        Salary = c;
+        Address = d;
+    }
+
+    void show() {
+        System.out.println(Name + "   " + Yoj + "    " + Address + "    " + Salary);
+    }
+}
+
+class number {
+    double n;
+
+    number(double m) {
+        n = m;
+    }
+
+    boolean iszero() {
+        if (n == 0.0)
+            return true;
+        else
+            return false;
+    }
+
+    boolean ispositive() {
+        if (n > 0)
+            return true;
+        else
+            return false;
+    }
+
+    boolean isnegative() {
+        if (n < 0)
+            return true;
+        else
+            return false;
+    }
+
+    boolean isodd() {
+        if (n % 2 == 1)
+            return true;
+        else
+            return false;
+    }
+
+    boolean iseven() {
+        if (n % 2 == 0)
+            return true;
+        else
+            return false;
+    }
+
+    boolean isPrime() {
+        int m = (int) n;
+        boolean flag = true;
+        for (int i = 2; i < m / 2; i++) {
+            if (m % i == 0) {
+                flag = false;
+                break;
+            } else
+                continue;
+        }
+        if (flag)
+            return false;
+        else
+            return true;
+    }
+
+    double getfactorial() {
+        int m = (int) n;
+        if (m <= 1)
+            return 1;
+        double d = 1;
+        while (m > 1) {
+            d *= m;
+            m--;
+        }
+        return d;
+    }
+
+    double getsqr() {
+        return n * n;
+    }
+
+    double sumdigit() {
+        int m = (int) n;
+        double d = n - m;
+        int sum = 0;
+        while (m > 0) {
+            sum += m % 10;
+            m /= 10;
+        }
+        int k = 0;
+        while (k != 9) {
+            sum += ((int) d) % 10;
+            d *= 10;
+            k++;
+        }
+        return sum;
+    }
+
+    double getsqrt() {
+        return Math.sqrt(n);
+    }
+
+    void listFactor() {
+        int m = (int) n;
+        for (int i = 1; i <= m; i++) {
+            if (m % i == 0)
+                System.err.print(i + " ");
+        }
+        System.err.println();
+    }
+}
+
+public class demo {
+
+    public static void main(String args[]) {
+        // ques 1
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size:");
+        int size = sc.nextInt();
+        Vector<Integer> temp = new Vector<Integer>(size);
+        while (temp.size() != size) {
+            int a = sc.nextInt();
+            temp.addElement(a);
+        }
+        System.out.println("Elements of vector are:");
+        for (int i = 0; i < temp.size(); i++) {
+            System.out.print(temp.elementAt(i) + " ");
+        }
+        System.out.println();
+        sc.close();
+
+        // ques 2
+        Employee robert = new Employee("Robert", 1994, 1000000, "64C-WallStreet");
+        Employee Sam = new Employee("Sam   ", 2000, 500000, "64D-WallStreet");
+        Employee John = new Employee("John  ", 1999, 250000, "26B-WallStreet");
+
+        System.out.println("Name    Year of Joining   Address     Salary");
+        robert.show();
+        Sam.show();
+        John.show();
+
+        // ques 3
+        
+        number l = new number(10.1);
+        System.out.println("isprime :" + l.isPrime());
+        System.out.println("iseven :" + l.iseven());
+        System.out.println(l.isnegative());
+        System.out.println(l.ispositive());
+        System.out.println(l.isodd());
+        System.out.println(l.getsqrt());
+        System.out.println(l.getfactorial());
+        System.out.println(l.getsqr());
+
+    }
+
+}
