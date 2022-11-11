@@ -1,0 +1,104 @@
+import java.util.*;
+import java.lang.Math;
+
+class RBI{
+    int min_interest_rate, min_balance, max_withdrawal;
+    RBI(int a ,int b ,int c){
+        min_interest_rate=a;
+        min_balance=b;
+        max_withdrawal=c;
+    }
+}
+class Bank extends RBI{
+    double margin,interest_rate;
+    Bank(double h,RBI obj){
+        super(obj.min_interest_rate,obj.min_balance,obj.max_withdrawal);
+        margin=h;
+        interest_rate=min_interest_rate+margin;
+    }
+}
+class Account extends Bank{
+    int balance;
+    String name;
+    Account(int a,String n,Bank obj,RBI obj1){
+        super(obj.margin, obj1);
+        balance=a;
+        name=n;
+    }
+}
+class marks{
+    int physics_marks,chemistry_marks,mathematics_marks;
+    marks(int a,int b,int c){
+        physics_marks=a;
+        chemistry_marks=b;
+        mathematics_marks=c;
+    }
+}
+class data_member extends marks{
+    int roll_number;
+    String name;
+    data_member(int a,String b,marks obj){
+        super(obj.physics_marks, obj.chemistry_marks, obj.mathematics_marks);
+        roll_number=a;
+        name=b;
+    }
+}
+class Mammals {
+		void fn1() {
+			System.out.println( "I am mammal" );
+		}
+}
+
+class MarineAnimals {
+	
+		void fn2() {
+			System.out.println( "I am a marine animal" ); 
+		}
+}
+
+class BlueWhale extends Mammals{
+	
+		void fn3() {
+			System.out.println(   "I belong to both the categories: Mammals as well as Marine Animals" );
+		}
+}
+public class demo {
+
+    public static void main(String args[]) {
+        //ques1
+        Mammals mm=new Mammals();
+        MarineAnimals ma=new MarineAnimals();
+        BlueWhale bw=new BlueWhale();
+        mm.fn1(); 
+        ma.fn2(); 
+        bw.fn3(); 
+        bw.fn1();
+        //bw.fn2();
+
+
+        // ques 2
+          RBI obj=new RBI(4,2000,50000);
+          Bank SBI=new Bank(1.6,obj);
+          Bank PNB=new Bank(2,obj);
+          Bank HDFC=new Bank(2.8,obj);
+          Bank ICICI=new Bank(2.4,obj);
+          Account raghav=new Account(20000, "Raghav", ICICI, obj); 
+          
+          //ques3
+            marks obj2=new marks(68, 79, 98);
+            data_member aditya=new data_member(1, "aditya", obj2);
+          
+            //ques 4
+            //output is 24
+            System.out.println("24");
+             
+
+            //ques 5
+            //output is 10
+            System.out.println("10");
+
+        
+
+    }
+
+}
