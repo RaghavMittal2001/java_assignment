@@ -1,0 +1,162 @@
+import java.util.*;
+import java.util.Scanner;
+
+class Calculator {
+  int num1;
+  int num2;
+
+  public Calculator(int num1, int num2) {
+    this.num1 = num1;
+    this.num2 = num2;
+  }
+
+  void addition() {
+    int ans = num1 + num2;
+    System.out.println("Sum : " + ans);
+
+  }
+
+  void subtraction() {
+    int ans = num1 - num2;
+    System.out.println("Difference: " + ans);
+
+  }
+
+  void division() {
+    double ans = (double) num1 / num2;
+    System.out.println("Division : " + ans);
+
+  }
+
+  void multiply() {
+    int ans = num1 * num2;
+    System.out.println("Product : " + ans);
+
+  }
+}
+
+class checker {
+  void Multiply(int first, int second) {
+    try {
+      if (first == 0 || second == 0) {
+        throw new ArithmeticException("one Number is zero ");
+      }
+
+      int ans = first * second;
+      System.out.println(ans);
+    } catch (ArithmeticException arithmeticException) {
+      System.out.println(arithmeticException);
+    }
+  }
+
+  void Division(int first, int second) {
+    try {
+      if (first == 0 || second == 0) {
+        throw new ArithmeticException("either one or both Numbers is/are zero ");
+      }
+      int ans = first / second;
+      System.out.println(ans);
+    } catch (ArithmeticException arithmeticException) {
+      System.out.println(arithmeticException);
+    }
+  }
+}
+
+class checker2 {
+
+  void Add(int first, int second) {
+
+    try {
+
+      if (first >= 0 && second >= 0) {
+        System.out.println(first + second);
+      } else {
+        throw new ArithmeticException("Numbers Shoud be positive");
+      }
+
+    } catch (ArithmeticException arithmeticException) {
+      System.out.println(arithmeticException);
+    }
+
+  }
+
+  void Subtract(int first, int second) {
+    try {
+
+      if (first >= 0 && second >= 0) {
+        System.out.println(first - second);
+      } else {
+        throw new ArithmeticException("Numbers Shoud be positive");
+      }
+
+    } catch (ArithmeticException arithmeticException) {
+      System.out.println(arithmeticException);
+    }
+  }
+}
+
+public class demo {
+
+  public static void main(String args[]) {
+
+    // ques1
+    checker c = new checker();
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Input first number : ");
+    int num1 = sc.nextInt();
+
+    System.out.print("Input second number : ");
+    int num2 = sc.nextInt();
+    c.Multiply(num1, num2);
+    c.Division(num1, num2);
+    sc.close();
+
+    // ques2
+    checker2 obj = new checker2();
+    Scanner scr = new Scanner(System.in);
+    System.out.print("Input first number : ");
+    int n1 = sc.nextInt();
+
+    System.out.print("Input second number : ");
+    int n2 = sc.nextInt();
+    obj.Add(n1, n2);
+    obj.Subtract(n1, n2);
+    scr.close();
+
+    // ques3
+
+    Scanner scn = new Scanner(System.in);
+    int m1, m2;
+    try {
+      m1 = Integer.parseInt(scn.nextLine());
+      m2 = Integer.parseInt(scn.nextLine());
+
+      Calculator obj1 = new Calculator(m1, m2);
+      obj1.addition();
+
+      m1 = Integer.parseInt(scn.nextLine());
+
+      m2 = Integer.parseInt(scn.nextLine());
+
+      Calculator obj2 = new Calculator(m1, m2);
+      obj2.subtraction();
+
+      m1 = Integer.parseInt(scn.nextLine());
+      m2 = Integer.parseInt(scn.nextLine());
+
+      Calculator obj3 = new Calculator(m1, m2);
+      obj3.multiply();
+
+      m1 = Integer.parseInt(scn.nextLine());
+      m2 = Integer.parseInt(scn.nextLine());
+
+      Calculator obj4 = new Calculator(m1, m2);
+      obj4.division();
+      scn.close();
+    } catch (NumberFormatException e) {
+      System.out.println("Inout entered is wrong " + e);
+    }
+
+  }
+
+}
